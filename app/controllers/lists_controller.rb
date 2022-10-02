@@ -10,6 +10,7 @@ class ListsController < ApplicationController
   end
   
   def index
+    @lists = List.all
   end
 
   def show
@@ -23,3 +24,4 @@ class ListsController < ApplicationController
     params.require(:list).permit(:title,:body)
   end
 end
+
