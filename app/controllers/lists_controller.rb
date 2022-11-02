@@ -6,13 +6,15 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to list_path(list.id)
+      flash[:notice] = "投稿に成功しました。"
+      redirect_to list_path(@list.id)
     else
       render:new
     end
   end
 
   def index
+    puts "作成したキー #{ENV['SECRET_KEY']}"
     @lists = List.all
   end
 
